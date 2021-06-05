@@ -16,105 +16,156 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Stack(
-        children: [
-
-          SingleChildScrollView(
-            child: Column(
-              children: [
-                Container(
-                  padding: EdgeInsets.only(left: 32, right: 32, top: 32),
-                  child: Column(
-                    children: [
-                      BuildCartRow(
-                        showBackArrow: false,
-                        title: 'Good morning Akila!',
-                      ),
-                      smallSizedBox,
-                      Row(children: [
-                        Text(
-                          'Delivering to',
-                          style: TextStyle(color: KPlaceholderColor),
+    return SafeArea(
+      child: Scaffold(
+        body: Stack(
+          children: [
+            SingleChildScrollView(
+              child: Column(
+                children: [
+                  Container(
+                    padding: EdgeInsets.only(left: 32, right: 32, top: 32),
+                    child: Column(
+                      children: [
+                        BuildCartRow(
+                          showBackArrow: false,
+                          title: 'Good morning Akila!',
                         ),
-                      ]),
-                      smallSizedBox,
-                      _buildCurrentLocation(),
-                      smallSizedBox,
-                      Row(
-                        children: [
-                          _buildSearch(),
-                        ],
-                      ),
-                    ],
+                        smallSizedBox,
+                        Row(children: [
+                          Text(
+                            'Delivering to',
+                            style: TextStyle(color: KPlaceholderColor),
+                          ),
+                        ]),
+                        smallSizedBox,
+                        _buildCurrentLocation(),
+                        smallSizedBox,
+                        Row(
+                          children: [
+                            _buildSearch(),
+                          ],
+                        ),
+                      ],
+                    ),
                   ),
-                ),
-                smallSizedBox,
-                Container(
-                    padding: EdgeInsets.only(left: 32),
-                    child: _buildCategoryListView(context)),
-                midSizedBox,
-                _buildCategoryTitleWithViewAll(
-                    categoryName: 'Popular Restaurents', onClick: () {}),
-                smallSizedBox,
-                _buildPopularRestaurantsListView(context),
-                _buildCategoryTitleWithViewAll(
-                    categoryName: 'Most Popular', onClick: () {}),
-                smallSizedBox,
-                Container(
-                  width: 1.sw,
-                  height: 220.h, // h , w , 2.sh ,sw , sp , r
-                  child: ListView.builder(
-                      shrinkWrap: true,
-                      scrollDirection: Axis.horizontal,
-                      itemCount: mostPopularListViewItems.length,
-                      itemBuilder: (BuildContext context, int index) {
-                        return mostPopularListViewItems[index];
-                      }),
-                ),
-                _buildCategoryTitleWithViewAll(
-                    categoryName: 'Recent Items', onClick: () {}),
-                smallSizedBox,
-              Container(
-                child: ListView.builder(
-                    shrinkWrap: true,
-                    itemCount: recentItemsRowItems.length,
-                    itemBuilder: (BuildContext context, int index) {
-                      return recentItemsRowItems[index];
-                    }),
-              )
-              ],
+                  smallSizedBox,
+                  Container(
+                      padding: EdgeInsets.only(left: 32),
+                      child: _buildCategoryListView(context)),
+                  midSizedBox,
+                  _buildCategoryTitleWithViewAll(
+                      categoryName: 'Popular Restaurents', onClick: () {}),
+                  smallSizedBox,
+                  _buildPopularRestaurantsListView(context),
+                  _buildCategoryTitleWithViewAll(
+                      categoryName: 'Most Popular', onClick: () {}),
+                  smallSizedBox,
+                  Container(
+                    width: 1.sw,
+                    height: 220.h, // h , w , 2.sh ,sw , sp , r
+                    child: ListView.builder(
+                        shrinkWrap: true,
+                        scrollDirection: Axis.horizontal,
+                        itemCount: mostPopularListViewItems.length,
+                        itemBuilder: (BuildContext context, int index) {
+                          return mostPopularListViewItems[index];
+                        }),
+                  ),
+                  _buildCategoryTitleWithViewAll(
+                      categoryName: 'Recent Items', onClick: () {}),
+                  Container(
+                    child: ListView.builder(
+                        shrinkWrap: true,
+                        physics: ClampingScrollPhysics(),
+                        itemCount: recentItemsRowItems.length,
+                        itemBuilder: (BuildContext context, int index) {
+                          return recentItemsRowItems[index];
+                        }),
+                  ),
+                  SizedBox(
+                    height: 80,
+                  ),
+                ],
+              ),
             ),
-          ),
-          Positioned(bottom:0,height:80,width: 1.sw,child: ClipPath(
-
-          clipper: BottomNavigationNotchClipper(),
-          child: Container(
-          color: KMainColor,
-          height:80,
-          ),
-          )),
-          Positioned(bottom: 30,left: .5.sw-30,child: FloatingActionButton(
-            onPressed: () {
-              Navigator.pushNamed(context, '/home_page');
-            },
-            backgroundColor: KMainColor,
-            child: NavBarItem(
-              icon: 'assets/images/home.svg',
-              home: true,
-              label: 'Home',
-              onClick: () {},
+            Positioned(
+                bottom: 0,
+                height: 80,
+                width: 1.sw,
+                child: ClipPath(
+                  clipper: BottomNavigationNotchClipper(),
+                  child: Container(
+                    color: Colors.white,
+                    height: 80,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        NavBarItem(
+                          icon: 'assets/images/menu.svg',
+                          label: 'Menu',
+                          color: KPlaceholderColor,
+                          home: false,
+                          onClick: () {
+                            Navigator.pushNamed(context, '/menu');
+                          },
+                        ),
+                        NavBarItem(
+                          icon: 'assets/images/offers.svg',
+                          label: 'Offers',
+                          color: KPlaceholderColor,
+                          home: false,
+                          onClick: () {
+                            Navigator.pushNamed(context, '/offers');
+                          },
+                        ),
+                        SizedBox(
+                          width: 40,
+                        ),
+                        NavBarItem(
+                          icon: 'assets/images/profile.svg',
+                          label: 'Profile',
+                          color: KPlaceholderColor,
+                          home: false,
+                          onClick: () {
+                            Navigator.pushNamed(context, '/profile');
+                          },
+                        ),
+                        NavBarItem(
+                          icon: 'assets/images/more.svg',
+                          label: 'More',
+                          color: KPlaceholderColor,
+                          home: false,
+                          onClick: () {
+                            Navigator.pushNamed(context, '/more');
+                          },
+                        ),
+                      ],
+                    ),
+                  ),
+                )),
+            Positioned(
+              bottom: 30,
+              left: .5.sw - 30,
+              child: FloatingActionButton(
+                onPressed: () {
+                  Navigator.pushNamed(context, '/home_page');
+                },
+                backgroundColor: KMainColor,
+                child: NavBarItem(
+                  icon: 'assets/images/home.svg',
+                  home: true,
+                  onClick: () {
+                    Navigator.pushNamed(context, '/home_page');
+                  },
+                ),
+              ),
             ),
-          ))
-        ],
+          ],
+        ),
+        floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-
-      // bottomNavigationBar: BottomAppBar(
-      //   color: Colors.transparent,
-      //   elevation: 0,
-      //   child: ),
-      );
+    );
   }
 
   Container _buildCategoryTitleWithViewAll(
@@ -207,7 +258,7 @@ class RecentItemsRow extends StatelessWidget {
     return GestureDetector(
       onTap: onClick,
       child: Container(
-        padding: EdgeInsets.only(left: 32,bottom: 12),
+        padding: EdgeInsets.only(left: 32, bottom: 12),
         child: Row(
           children: [
             Container(
@@ -221,26 +272,43 @@ class RecentItemsRow extends StatelessWidget {
                 ),
               ),
             ),
-            SizedBox(width: 15,),
+            SizedBox(
+              width: 15,
+            ),
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(label,style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold),),
-                SizedBox(height: 10,),
+                Text(
+                  label,
+                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                ),
+                SizedBox(
+                  height: 10,
+                ),
                 Row(
                   children: [
                     Text('Café  '),
                     BuildDot(color: KMainColor),
                     Text(' Western Food'),
                   ],
-
                 ),
-                SizedBox(height: 10,),
+                SizedBox(
+                  height: 10,
+                ),
                 Row(
                   children: [
-                    SvgPicture.asset('assets/images/star.svg',color: KMainColor,),
-                    Text(' 4.9',style: TextStyle(color: KMainColor),),
-                    Text('    (124 Ratings)',style: TextStyle(color: KPlaceholderColor),),
+                    SvgPicture.asset(
+                      'assets/images/star.svg',
+                      color: KMainColor,
+                    ),
+                    Text(
+                      ' 4.9',
+                      style: TextStyle(color: KMainColor),
+                    ),
+                    Text(
+                      '    (124 Ratings)',
+                      style: TextStyle(color: KPlaceholderColor),
+                    ),
                   ],
                 ),
               ],
@@ -276,7 +344,7 @@ class NavBarItem extends StatelessWidget {
               color: home ? Colors.white : KPlaceholderColor,
               semanticsLabel: label,
             ),
-            if (home == false)
+            if (label !=null)
               Text(
                 label,
                 style: TextStyle(
@@ -289,34 +357,3 @@ class NavBarItem extends StatelessWidget {
     );
   }
 }
-
-class BottomNavigationNotchClipper extends CustomClipper<Path>{
-  @override
-  Path getClip(Size size) {
-    double width =ScreenUtil().setWidth(size.width);
-    double height =ScreenUtil().setWidth(size.height);
-    double rd = width * .25;
-    double rounded = 20;
-    var path = Path();
-
-    path.lineTo(3*rd/2-rounded, 0);
-    path.quadraticBezierTo(3*rd/2,0,3*rd/2,rounded);
-    path.arcToPoint(
-      Offset(5*rd/2,rounded),
-      radius: Radius.circular(rd/4),
-      clockwise: false,
-    );
-    path.quadraticBezierTo(5*rd/2,0, 5*rd/2 + rounded,0);
-    path.lineTo(width, 0);
-    path.lineTo(width, height);
-    path.lineTo(0, height);
-    path.lineTo(0, 0);
-    path.close();
-    return path;
-  }
-
-  @override
-  bool shouldReclip(covariant CustomClipper<Path> oldClipper) {
-    return true;
-  }
-} //Draw bottom app bar notch

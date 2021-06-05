@@ -325,5 +325,74 @@ class MostPopularList extends StatelessWidget {
   }
 }
 
+class BottomNavigationNotchClipper extends CustomClipper<Path> {
+  @override
+  Path getClip(Size size) {
+    double width = ScreenUtil().setWidth(size.width);
+    double height = ScreenUtil().setWidth(size.height);
+    double rd = width * .25;
+    double rounded = 20;
+    var path = Path();
+
+    path.lineTo(3 * rd / 2 - rounded, 0);
+    path.quadraticBezierTo(3 * rd / 2, 0, 3 * rd / 2, rounded);
+    path.arcToPoint(
+      Offset(5 * rd / 2, rounded),
+      radius: Radius.circular(rd / 4),
+      clockwise: false,
+    );
+    path.quadraticBezierTo(5 * rd / 2, 0, 5 * rd / 2 + rounded, 0);
+    path.lineTo(width, 0);
+    path.lineTo(width, height);
+    path.lineTo(0, height);
+    path.lineTo(0, 0);
+    path.close();
+    return path;
+  }
+
+  @override
+  bool shouldReclip(covariant CustomClipper<Path> oldClipper) {
+    return true;
+  }
+}
+
+class NavBarItem extends StatelessWidget {
+  final Function onClick;
+  final String icon;
+  final String label;
+  final bool home;
+  final Color color;
+  const NavBarItem(
+      {this.onClick, this.icon, this.label, this.home, this.color});
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: onClick,
+      child: Container(
+        padding: home ? EdgeInsets.all(10) : EdgeInsets.only(top: 30),
+        width: 70,
+        height: 70,
+        child: Column(
+          children: [
+            SvgPicture.asset(
+              icon,
+              color: home ? Colors.white : KPlaceholderColor,
+              semanticsLabel: label,
+            ),
+            if (label !=null)
+              Text(
+                label,
+                style: TextStyle(
+                  color: home ? Colors.white : KPlaceholderColor,
+                ),
+              )
+          ],
+        ),
+      ),
+    );
+  }
+}
+
 
 

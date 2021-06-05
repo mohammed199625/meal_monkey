@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:meal_monkey/constants.dart';
+import 'package:meal_monkey/screens/menu.dart';
+import 'package:meal_monkey/screens/more_screen.dart';
+import 'package:meal_monkey/screens/offers_screen.dart';
+import 'package:meal_monkey/screens/profile_screen.dart';
 import 'screens/home_page/home_page.dart';
 import 'package:meal_monkey/screens/login_screen.dart';
 import 'package:meal_monkey/screens/new_password_screen.dart';
@@ -29,6 +33,10 @@ class MyApp extends StatelessWidget {
           '/new_password':(context)=>NewPassword(),
           '/otp_screen':(context)=>OTPScreen(),
           '/on_boarding_screen':(context)=>OnBoardingScreen(),
+          '/menu':(context)=>MenuScreen(),
+          '/profile':(context)=>ProfileScreen(),
+          '/offers':(context)=>OffersScreen(),
+          '/more':(context)=>MoreScreen(),
 
         },
         theme: ThemeData(

@@ -31,7 +31,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
       'mainText': 'Live Tracking',
       'text': 'Real time tracking of your food on the app\n'
           ' once you placed the order'
-    }
+    },
   ];
 
   @override
