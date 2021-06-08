@@ -394,5 +394,104 @@ class NavBarItem extends StatelessWidget {
   }
 }
 
+class TriangleClipper extends CustomClipper<Path> {
+  @override
+  Path getClip(Size size) {
+    double width = ScreenUtil().setWidth(size.width);
+    double height = ScreenUtil().setWidth(size.height);
+    double r = 10;
+    var path = Path();
+    path.lineTo(r,r);
+    path.quadraticBezierTo(0, height/2, r, height-r);
+    path.quadraticBezierTo(3*r/2, height, 2*r,height);
+    path.quadraticBezierTo(width/2+r, height, width-r, height/2+r);
+    path.quadraticBezierTo(width, height/2,width-r,height/2-r );
+    path.quadraticBezierTo(width/2+r,0, 2*r,0 );
+    path.quadraticBezierTo(3*r/2,0,r,r );
+    path.close();
+    return path;
+  }
 
+  @override
+  bool shouldReclip(covariant CustomClipper<Path> oldClipper) {
+    return true;
+  }
+}
 
+class MenuRow extends StatelessWidget {
+  final String title;
+  final String items;
+
+  const MenuRow({this.title, this.items});
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: ScreenUtil().setHeight(100),
+      width: ScreenUtil().setWidth(280),
+      child: Container(
+        padding: EdgeInsets.only(top: 25,left: 80),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(title,style: TextStyle(
+              fontSize: 20,fontWeight: FontWeight.bold
+            ),),
+            SizedBox(
+              height: 5,
+            ),
+            Text(items,style: TextStyle(color: KPlaceholderColor),),
+          ],
+        ),
+      ),
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.only(
+          topLeft: Radius.circular(50),
+          bottomLeft: Radius.circular(50),
+          topRight: Radius.circular(15),
+          bottomRight: Radius.circular(15),
+        ),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.grey.withOpacity(0.1), //color of shadow
+            spreadRadius: 5, //spread radius
+            blurRadius: 7, // blur radius
+            offset: Offset(0, 2), // changes position of shadow
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class ForwardArrowInShadedCircle extends StatelessWidget {
+  const ForwardArrowInShadedCircle({
+    Key key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: EdgeInsets.all(10),
+      width: 40,
+      height: 40,
+      child: SvgPicture.asset(
+        'assets/images/forward_arrow.svg',
+      ),
+      decoration: BoxDecoration(
+        shape: BoxShape.circle,
+        color: Colors.white,
+        boxShadow: [
+          BoxShadow(
+            color: Colors.grey.withOpacity(
+                0.1), //color of shadow
+            spreadRadius: 5, //spread radius
+            blurRadius: 7, // blur radius
+            offset: Offset(0,
+                2), // changes position of shadow
+          ),
+        ],
+      ),
+    );
+  }
+}
