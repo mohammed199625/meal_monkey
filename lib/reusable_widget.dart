@@ -168,24 +168,32 @@ class BuildCartRow extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+
+      mainAxisAlignment: showBackArrow?MainAxisAlignment.spaceBetween:MainAxisAlignment.spaceEvenly,
       children: [
-        if(showBackArrow==true)
-          GestureDetector(
-            onTap: (){
-              Navigator.pop(context);
-            },
-            child: SvgPicture.asset(
-              'assets/images/back_arrow.svg',
-              semanticsLabel: 'Back Arrow',
-              color: Colors.black,
-            ),
+        Container(
+          child: Row(
+            children: [
+              if(showBackArrow==true)
+                GestureDetector(
+                  onTap: (){
+                    Navigator.pop(context);
+                  },
+                  child: SvgPicture.asset(
+                    'assets/images/back_arrow.svg',
+                    semanticsLabel: 'Back Arrow',
+                    color: Colors.black,
+                  ),
+                ),
+              SizedBox(width: 32,),
+              if(title != null)
+                Text(
+                  title,
+                  style: TextStyle(fontSize: 22),
+                ),
+            ],
           ),
-        if(title != null)
-          Text(
-            title,
-            style: TextStyle(fontSize: 22),
-          ),
+        ),
         SvgPicture.asset(
           'assets/images/shopping_cart.svg',
           semanticsLabel: 'Shopping Cart',

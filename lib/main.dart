@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:meal_monkey/constants.dart';
-import 'screens/Menu/menu.dart';
+import 'package:meal_monkey/screens/Menu/beverages_screen.dart';
+import 'package:meal_monkey/screens/Menu/dessert_screen.dart';
+import 'package:meal_monkey/screens/Menu/food_screen.dart';
+import 'package:meal_monkey/screens/Menu/promotions_screen.dart';
+import 'screens/Menu/menu_screen.dart';
 import 'package:meal_monkey/screens/more_screen.dart';
 import 'package:meal_monkey/screens/offers_screen.dart';
 import 'package:meal_monkey/screens/profile_screen.dart';
@@ -26,7 +30,7 @@ class MyApp extends StatelessWidget {
       designSize: Size(411, 866),
       builder:()=> MaterialApp(
         routes: {
-          '/': (context) =>MenuScreen(),//SplashScreen(),
+          '/': (context) =>DessertScreen(),//SplashScreen(),
           '/home_page': (context) => HomePage(),
           '/login':(context)=>Login(),
           '/sign_up':(context)=>SignUp(),
@@ -38,6 +42,10 @@ class MyApp extends StatelessWidget {
           '/profile':(context)=>ProfileScreen(),
           '/offers':(context)=>OffersScreen(),
           '/more':(context)=>MoreScreen(),
+          '/food':(context)=>FoodScreen(),
+          '/beverages':(context)=>BeveragesScreen(),
+          '/desserts':(context)=>DessertScreen(),
+          '/promotions':(context)=>PromotionsScreen(),
 
         },
         theme: ThemeData(

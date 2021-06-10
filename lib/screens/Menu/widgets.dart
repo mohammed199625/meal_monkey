@@ -14,7 +14,7 @@ RotationTransition buildRotatedSquareImage() {
         color: Colors.white,
         image: DecorationImage(
             image: AssetImage(
-              'assets/images/food.jpg',
+              'assets/images/promotions.jpg',
             ),
             fit: BoxFit.cover),
       ),
@@ -32,7 +32,7 @@ ClipPath buildTriangleImage() {
         color: Colors.white,
         image: DecorationImage(
             image: AssetImage(
-              'assets/images/food.jpg',
+              'assets/images/dessert.jpg',
             ),
             fit: BoxFit.cover),
       ),
@@ -40,7 +40,7 @@ ClipPath buildTriangleImage() {
   );
 }
 
-Container buildSquarImage() {
+Container buildSquareImage() {
   return Container(
     width: 80,
     height: 80,
@@ -49,14 +49,14 @@ Container buildSquarImage() {
       color: Colors.white,
       image: DecorationImage(
           image: AssetImage(
-            'assets/images/food.jpg',
+            'assets/images/beverages.jpg',
           ),
           fit: BoxFit.cover),
     ),
   );
 }
 
-Positioned buildForwaedArrow() {
+Positioned buildForwardArrow() {
   return Positioned(
     top: 20,
     left: 300,
@@ -82,7 +82,7 @@ Positioned buildCircularImage() {
   );
 }
 
-Positioned buildFoodRow(String title, String items) {
+Positioned buildFoodRow({String title, String items}) {
   return Positioned(
     top: -8,
     left: 40,
@@ -93,7 +93,7 @@ Positioned buildFoodRow(String title, String items) {
   );
 }
 
-Positioned buildBackGroundOrnageContainer() {
+Positioned buildBackGroundOrangeContainer() {
   return Positioned(
     child: Container(
       width: ScreenUtil().setWidth(140),
