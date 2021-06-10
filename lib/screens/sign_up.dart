@@ -43,10 +43,12 @@ class SignUp extends StatelessWidget {
             ),
             smallSizedBox,
             ReusableTextField(
+              hidePassword: true,
               label: 'Password',
             ),
             smallSizedBox,
             ReusableTextField(
+              hidePassword: true,
               label: 'Confirm Password',
             ),
             smallSizedBox,

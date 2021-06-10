@@ -41,6 +41,7 @@ class LogoWithName extends StatelessWidget {
 }
 
 class ReusableButton extends StatelessWidget {
+  final bool isSmall;
   final String icon;
   final Color buttonColor;
   final Color buttonBorderColor;
@@ -53,7 +54,8 @@ class ReusableButton extends StatelessWidget {
       this.onClick,
       this.buttonLabelColor,
       this.buttonBorderColor,
-      this.icon});
+      this.icon, this.isSmall});
+
   @override
   Widget build(BuildContext context) {
     return ButtonTheme(
@@ -77,7 +79,7 @@ class ReusableButton extends StatelessWidget {
               border: Border.all(color: buttonBorderColor),
               borderRadius: BorderRadius.circular(50)
           ) ,
-          padding: EdgeInsets.symmetric(vertical: 16,horizontal: 32),
+          padding: isSmall==null?EdgeInsets.symmetric(vertical: 16,horizontal: 32):null,
 
         ),
         onTap: onClick,
@@ -87,16 +89,19 @@ class ReusableButton extends StatelessWidget {
 }
 
 class ReusableTextField extends StatelessWidget {
+  final bool hidePassword;
+  final bool showHint;
   final String label;
-
-  const ReusableTextField({@required this.label});
+  const ReusableTextField({@required this.label, this.showHint, this.hidePassword});
   @override
   Widget build(BuildContext context) {
     return Container(
       width: MediaQuery.of(context).size.width,
-      height: ScreenUtil().setHeight(50),
+      height: ScreenUtil().setHeight(60),
       child: TextField(
+        obscureText: hidePassword!=null?true:false,
         decoration: new InputDecoration(
+          contentPadding: EdgeInsets.only(left: 15),
             border: new OutlineInputBorder(
               borderRadius: const BorderRadius.all(
                 const Radius.circular(50.0),
@@ -107,11 +112,13 @@ class ReusableTextField extends StatelessWidget {
               ),
             ),
             filled: true,
+            labelText: showHint!=null?'      $label':null,
+            labelStyle: new TextStyle(color: KTextColor,fontSize: 15,),
+            hintText: showHint==null?'      $label':null,
             hintStyle: new TextStyle(color: KTextColor),
             helperStyle: TextStyle(
-              fontSize: 20
+                fontSize: 20
             ),
-            hintText: '      $label',
             fillColor: KInputTextFieldColor),
       ),
     );
@@ -169,7 +176,7 @@ class BuildCartRow extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
 
-      mainAxisAlignment: showBackArrow?MainAxisAlignment.spaceBetween:MainAxisAlignment.spaceEvenly,
+      mainAxisAlignment:MainAxisAlignment.spaceBetween,
       children: [
         Container(
           child: Row(
@@ -185,11 +192,12 @@ class BuildCartRow extends StatelessWidget {
                     color: Colors.black,
                   ),
                 ),
+              if(showBackArrow ==true)
               SizedBox(width: 32,),
               if(title != null)
                 Text(
                   title,
-                  style: TextStyle(fontSize: 22),
+                  style: TextStyle(fontSize: 22,fontWeight: FontWeight.bold),
                 ),
             ],
           ),

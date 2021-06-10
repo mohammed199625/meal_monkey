@@ -7,8 +7,8 @@ import 'package:meal_monkey/screens/Menu/food_screen.dart';
 import 'package:meal_monkey/screens/Menu/promotions_screen.dart';
 import 'screens/Menu/menu_screen.dart';
 import 'package:meal_monkey/screens/more_screen.dart';
-import 'package:meal_monkey/screens/offers_screen.dart';
-import 'package:meal_monkey/screens/profile_screen.dart';
+import 'screens/offers/offers_screen.dart';
+import 'screens/profile/profile_screen.dart';
 import 'package:meal_monkey/screens/splash_screen.dart';
 import 'screens/home_page/home_page.dart';
 import 'package:meal_monkey/screens/login_screen.dart';
@@ -30,7 +30,7 @@ class MyApp extends StatelessWidget {
       designSize: Size(411, 866),
       builder:()=> MaterialApp(
         routes: {
-          '/': (context) =>DessertScreen(),//SplashScreen(),
+          '/': (context) =>HomePage(),//SplashScreen(),
           '/home_page': (context) => HomePage(),
           '/login':(context)=>Login(),
           '/sign_up':(context)=>SignUp(),

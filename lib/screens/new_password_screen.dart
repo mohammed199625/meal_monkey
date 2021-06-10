@@ -32,10 +32,12 @@ class NewPassword extends StatelessWidget {
                 child: Column(
                   children: [
                     ReusableTextField(
+                      hidePassword: true,
                       label: 'New Password',
                     ),
                     smallSizedBox,
                     ReusableTextField(
+                      hidePassword: true,
                       label: 'Confirm Password',
                     ),
                     smallSizedBox,

@@ -17,7 +17,7 @@ class FoodScreen extends StatelessWidget {
                 padding: EdgeInsets.all(32),
                 child: Column(
                   children: [
-                    BuildCartRow(showBackArrow: true,title: 'Desserts',),
+                    BuildCartRow(showBackArrow: true,title: 'Food',),
                   ],
                 ),
               ),

@@ -31,6 +31,7 @@ class Login extends StatelessWidget {
               ),
               smallSizedBox,
               ReusableTextField(
+                hidePassword: true,
                 label: 'Password',
               ),
               smallSizedBox,
