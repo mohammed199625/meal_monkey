@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../constants.dart';
-import '../reusable_widget.dart';
+import '../../constants.dart';
+import '../../reusable_widget.dart';
 
 class NewPassword extends StatelessWidget {
   @override

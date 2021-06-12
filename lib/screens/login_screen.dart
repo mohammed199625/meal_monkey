@@ -52,6 +52,7 @@ class Login extends StatelessWidget {
               Center(child: Text('or Login With'),),
               smallSizedBox,
               ReusableButton(
+                icon: 'assets/images/facebook.svg',
                 buttonColor: Colors.blue,
                 buttonLabelColor: Colors.white,
                 buttonBorderColor: Colors.blue,
@@ -60,6 +61,7 @@ class Login extends StatelessWidget {
               ),
               smallSizedBox,
               ReusableButton(
+                icon: 'assets/images/google_plus.svg',
                 buttonColor: Colors.red,
                 buttonLabelColor: Colors.white,
                 buttonBorderColor: Colors.red,

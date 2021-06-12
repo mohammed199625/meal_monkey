@@ -45,7 +45,9 @@ class FirstPage extends StatelessWidget {
                       buttonLabelColor: KMainColor,
                       buttonBorderColor: KMainColor,
                       buttonLabel: 'Create an Account',
-                      onClick: () {}),
+                      onClick: () {
+                        Navigator.pushNamed(context, '/sign_up');
+                      }),
                 ],
               ),
             )

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:meal_monkey/constants.dart';
 import 'package:meal_monkey/reusable_widget.dart';
-import 'package:meal_monkey/screens/home_page/search_bar.dart';
+import 'package:meal_monkey/screens/home_page_screen/search_bar.dart';
 
 import 'data.dart';
 

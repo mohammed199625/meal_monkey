@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../constants.dart';
-import '../reusable_widget.dart';
+import '../../constants.dart';
+import '../../reusable_widget.dart';
 class ResetPassword extends StatelessWidget {
   @override
   Widget build(BuildContext context) {

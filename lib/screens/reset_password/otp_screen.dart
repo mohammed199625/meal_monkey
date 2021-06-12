@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import '../constants.dart';
-import '../reusable_widget.dart';
+import '../../constants.dart';
+import '../../reusable_widget.dart';
 
 class OTPScreen extends StatelessWidget {
   @override

@@ -7,8 +7,9 @@ RotationTransition buildRotatedSquareImage() {
   return RotationTransition(
     turns: new AlwaysStoppedAnimation(45 / 360),
     child: Container(
-      width: 70,
-      height: 70,
+      margin: EdgeInsets.only(top: ScreenUtil().setHeight(10)),
+      width: ScreenUtil().setWidth(70),
+      height: ScreenUtil().setHeight(70),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(15),
         color: Colors.white,
@@ -26,8 +27,8 @@ ClipPath buildTriangleImage() {
   return ClipPath(
     clipper: TriangleClipper(),
     child: Container(
-      width: 85,
-      height: 85,
+      width: ScreenUtil().setWidth(85),
+      height: ScreenUtil().setHeight(85),
       decoration: BoxDecoration(
         color: Colors.white,
         image: DecorationImage(
@@ -42,8 +43,9 @@ ClipPath buildTriangleImage() {
 
 Container buildSquareImage() {
   return Container(
-    width: 80,
-    height: 80,
+    margin: EdgeInsets.only(top: ScreenUtil().setHeight(10)),
+    width: ScreenUtil().setWidth(80),
+    height: ScreenUtil().setHeight(80),
     decoration: BoxDecoration(
       borderRadius: BorderRadius.circular(15),
       color: Colors.white,
@@ -56,53 +58,63 @@ Container buildSquareImage() {
   );
 }
 
+Container buildCircularImage() {
+  return Container(
+    margin: EdgeInsets.only(top: ScreenUtil().setHeight(10)),
+    width: ScreenUtil().setWidth(80),
+    height: ScreenUtil().setHeight(80),
+    decoration: BoxDecoration(
+      shape: BoxShape.circle,
+      color: Colors.white,
+      image: DecorationImage(
+          image: AssetImage(
+            'assets/images/food.jpg',
+          ),
+          fit: BoxFit.cover),
+    ),
+  );
+}
+
 Positioned buildForwardArrow() {
   return Positioned(
-    top: 20,
-    left: 300,
-    child: ForwardArrowInShadedCircle(),
-  );
-}
-
-Positioned buildCircularImage() {
-  return Positioned(
-    child: Container(
-      width: 80,
-      height: 80,
-      decoration: BoxDecoration(
-        shape: BoxShape.circle,
-        color: Colors.white,
-        image: DecorationImage(
-            image: AssetImage(
-              'assets/images/food.jpg',
-            ),
-            fit: BoxFit.cover),
-      ),
+    top: ScreenUtil().setHeight(25),
+    left: ScreenUtil().setHeight(300),
+    child: ForwardArrowInShadedCircle(
+      opacity: .1,
+      circleColor: Colors.white,
+      arrowColor: KMainColor,
     ),
   );
 }
 
-Positioned buildFoodRow({String title, String items}) {
-  return Positioned(
-    top: -8,
-    left: 40,
-    child: MenuRow(
-      title: title,
-      items: items,
+Container buildFoodRow({String title, String items}) {
+  return Container(
+    padding: EdgeInsets.only(left: ScreenUtil().setWidth(40)),
+    child: Row(
+      children: [
+        MenuRow(
+          title: title,
+          items: items,
+        ),
+      ],
     ),
   );
 }
 
-Positioned buildBackGroundOrangeContainer() {
-  return Positioned(
-    child: Container(
-      width: ScreenUtil().setWidth(140),
-      height: ScreenUtil().setHeight(550),
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.only(
-            topRight: Radius.circular(30), bottomRight: Radius.circular(30)),
-        color: KMainColor,
+Container buildBackGroundOrangeContainer() {
+  return Container(
+    width: ScreenUtil().setWidth(140),
+    height: ScreenUtil().setHeight(550),
+    decoration: BoxDecoration(
+      borderRadius: BorderRadius.only(
+        topRight: Radius.circular(
+          ScreenUtil().setWidth(30),
+        ),
+        bottomRight: Radius.circular(
+          ScreenUtil().setHeight(30),
+        ),
       ),
+      color: KMainColor,
     ),
   );
 }

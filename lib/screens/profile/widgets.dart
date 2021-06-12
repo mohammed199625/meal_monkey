@@ -27,28 +27,34 @@ Column buildProfileData() {
         showHint: true,
         label: 'Name',
       ),
+      smallSizedBox,
       ReusableTextField(
         showHint: true,
         label: 'Email',
       ),
+      smallSizedBox,
       ReusableTextField(
         showHint: true,
         label: 'Mobile No',
       ),
+      smallSizedBox,
       ReusableTextField(
         showHint: true,
         label: 'Address',
       ),
+      smallSizedBox,
       ReusableTextField(
         hidePassword: true,
         showHint: true,
         label: 'Password',
       ),
+      smallSizedBox,
       ReusableTextField(
         hidePassword: true,
         showHint: true,
         label: 'Confirm Password',
       ),
+      smallSizedBox,
       ReusableButton(
         buttonColor: KMainColor,
         buttonLabelColor: Colors.white,

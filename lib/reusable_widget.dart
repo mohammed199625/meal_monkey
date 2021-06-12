@@ -67,7 +67,10 @@ class ReusableButton extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               if(icon!=null)
-              SvgPicture.asset(icon),
+              Padding(
+                padding: const EdgeInsets.only(right: 20),
+                child: SvgPicture.asset(icon),
+              ),
               Text(
                 buttonLabel,
                 style: TextStyle(color: buttonLabelColor, fontSize: KButtonLabelSize),
@@ -481,26 +484,28 @@ class MenuRow extends StatelessWidget {
 }
 
 class ForwardArrowInShadedCircle extends StatelessWidget {
-  const ForwardArrowInShadedCircle({
-    Key key,
-  }) : super(key: key);
+  final double opacity;
+  final Color circleColor;
+  final Color arrowColor;
+  const ForwardArrowInShadedCircle({@required this.opacity, this.circleColor, this.arrowColor});
 
   @override
   Widget build(BuildContext context) {
     return Container(
       padding: EdgeInsets.all(10),
-      width: 40,
-      height: 40,
+      width: ScreenUtil().setWidth(40),
+      height: ScreenUtil().setHeight(40),
       child: SvgPicture.asset(
         'assets/images/forward_arrow.svg',
+        color: arrowColor,
       ),
       decoration: BoxDecoration(
         shape: BoxShape.circle,
-        color: Colors.white,
+        color: circleColor,
         boxShadow: [
           BoxShadow(
             color: Colors.grey.withOpacity(
-                0.1), //color of shadow
+                opacity), //color of shadow
             spreadRadius: 5, //spread radius
             blurRadius: 7, // blur radius
             offset: Offset(0,
