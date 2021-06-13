@@ -25,7 +25,7 @@ class NotificationRow extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                notificationSubString(notification),
+                textSubString(text: notification,index: 30),
                 style: TextStyle(fontSize: 20),
 
               ),
@@ -41,11 +41,4 @@ class NotificationRow extends StatelessWidget {
     );
   }
 
-  String notificationSubString(String notification){
-    if(notification.length<30){
-      return notification;
-    }else {
-      return '${notification.substring(0,30)} ...';
-    }
-  }
 }

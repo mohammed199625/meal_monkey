@@ -5,20 +5,18 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../constants.dart';
 
 class SearchWidget extends StatefulWidget {
-  final String text;
-  final ValueChanged<String> onChanged;
-  final String hintText;
-  SearchWidget({this.text, this.onChanged, this.hintText});
+  final String hint;
 
+  const SearchWidget({this.hint});
   @override
   _SearchWidgetState createState() => _SearchWidgetState();
 }
-
 class _SearchWidgetState extends State<SearchWidget> {
-  final controller=TextEditingController();
 
+  final controller=TextEditingController();
   @override
   Widget build(BuildContext context) {
+    String myHint = widget.hint;
     return Container(
       height: ScreenUtil().setHeight(42),
       width: ScreenUtil().setWidth(MediaQuery.of(context).size.width-65),
@@ -40,7 +38,7 @@ class _SearchWidgetState extends State<SearchWidget> {
             ),
             filled: true,
             hintStyle: new TextStyle(color: KTextColor),
-            hintText: 'Search food',
+            hintText:myHint,
             icon: Icon(Icons.search,color: KPrimaryFontColor,),
             fillColor: KInputTextFieldColor),
       ),

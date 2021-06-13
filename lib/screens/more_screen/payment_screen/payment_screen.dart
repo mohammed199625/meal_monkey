@@ -33,16 +33,17 @@ class PaymentScreen extends StatelessWidget {
                       ],
                     ),
                     SizedBox(
-                      height: 12,
+                      height: 18,
                     ),
                     buildLine(context),
                     SizedBox(
-                      height: 12,
+                      height: 18,
                     ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        SvgPicture.asset('assets/images/visa.svg'),
+                        Container(
+                        child:Image.asset('assets/images/visa.png'),),
                         Text(
                           '**** **** ****  2187',
                           style: TextStyle(fontSize: 12),
@@ -62,7 +63,7 @@ class PaymentScreen extends StatelessWidget {
                       ],
                     ),
                     SizedBox(
-                      height: 24,
+                      height: 18,
                     ),
                     buildLine(context),
                     SizedBox(
@@ -105,9 +106,7 @@ class PaymentScreen extends StatelessWidget {
     );
   }
 
-  Widget buildSheet(BuildContext context) => Container(
-        margin: EdgeInsets.symmetric(horizontal: 32),
-        child: buildBottomSheetContent(context),
-      );
+  Widget buildSheet(BuildContext context) => AddCreditCard();
 
 }
+

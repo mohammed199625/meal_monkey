@@ -173,7 +173,8 @@ class BuildDot extends StatelessWidget {
 class BuildCartRow extends StatelessWidget {
   final bool showBackArrow;
   final String title;
-  const BuildCartRow({this.title,@required this.showBackArrow});
+  final bool showCart;
+  const BuildCartRow({this.title,@required this.showBackArrow, this.showCart});
 
   @override
   Widget build(BuildContext context) {
@@ -205,6 +206,7 @@ class BuildCartRow extends StatelessWidget {
             ],
           ),
         ),
+        if(showCart==null)
         SvgPicture.asset(
           'assets/images/shopping_cart.svg',
           semanticsLabel: 'Shopping Cart',
@@ -514,5 +516,90 @@ class ForwardArrowInShadedCircle extends StatelessWidget {
         ],
       ),
     );
+  }
+}
+
+// ignore: must_be_immutable
+class AddCreditCard extends StatelessWidget {
+bool isActive=false;
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      margin: EdgeInsets.symmetric(horizontal: 32),
+      padding: EdgeInsets.only(bottom: 32),
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Container(
+                padding: EdgeInsets.only(top: 32),
+                child: Text(
+                  'Add Credit/Debit Card',
+                  style: TextStyle(fontSize: 15),
+                ),
+              ),
+              InkWell(
+                onTap: () {
+                  Navigator.pop(context);
+                },
+                child: Container(
+                  child: SvgPicture.asset('assets/images/dismiss.svg'),
+                ),
+              ),
+            ],
+          ),
+          smallSizedBox,
+          ReusableTextField(label: 'Card Number'),
+          smallSizedBox,
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text('Expire'),
+              Container(
+                  width: ScreenUtil().setWidth(120),
+                  child: ReusableTextField(label: '  MM')),
+              Container(
+                  width: ScreenUtil().setWidth(120),
+                  child: ReusableTextField(label: '  YY')),              ],
+          ),
+          smallSizedBox,
+          ReusableTextField(label: 'Security Code',),
+          smallSizedBox,
+          ReusableTextField(label: 'First Name',),
+          smallSizedBox,
+          ReusableTextField(label: 'Last Name',),
+          smallSizedBox,
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text('You can remove this card at anytime'),
+              Switch(value: isActive, onChanged: (value){
+                value=value;
+              },inactiveThumbColor: Color(0xFFD8D8D8),inactiveTrackColor: Color(0xFFD8D8D8),),
+            ],
+
+          ),
+          smallSizedBox,
+          ReusableButton(
+              buttonLabelColor: Colors.white,
+              buttonBorderColor: KMainColor,
+              buttonLabel: 'Add Card',
+              buttonColor: KMainColor,
+              icon: 'assets/images/plus.svg',
+              onClick: () {}
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+String textSubString({String text,int index}){
+  if(text.length<index){
+    return text;
+  }else {
+    return '${text.substring(0,index)} ...';
   }
 }

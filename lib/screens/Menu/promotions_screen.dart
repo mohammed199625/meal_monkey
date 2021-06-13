@@ -17,7 +17,10 @@ class PromotionsScreen extends StatelessWidget {
                 padding: EdgeInsets.all(32),
                 child: Column(
                   children: [
-                    BuildCartRow(showBackArrow: true,title: 'Promotion',),
+                    BuildCartRow(
+                      showBackArrow: true,
+                      title: 'Promotion',
+                    ),
                   ],
                 ),
               ),
@@ -38,11 +41,6 @@ class PromotionsScreen extends StatelessWidget {
       ),
     );
   }
-  Widget _buildSearch() => SearchWidget(
-    text: 'query',
-    hintText: 'Search Food',
-    //onChanged:(){},
-    //searchFood,
-  );
 
+  Widget _buildSearch() => SearchWidget(hint: 'Search Food');
 }

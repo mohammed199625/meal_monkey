@@ -209,12 +209,8 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-  Widget _buildSearch() => SearchWidget(
-        text: 'query',
-        hintText: 'Search Food',
-        //onChanged:(){},
-        //searchFood,
-      );
+  Widget _buildSearch() => SearchWidget(hint: 'Search Food');
+
 
   Widget _buildCategoryListView(BuildContext context) {
     return Container(

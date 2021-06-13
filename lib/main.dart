@@ -5,6 +5,8 @@ import 'package:meal_monkey/screens/Menu/beverages_screen.dart';
 import 'package:meal_monkey/screens/Menu/dessert_screen.dart';
 import 'package:meal_monkey/screens/Menu/food_screen.dart';
 import 'package:meal_monkey/screens/Menu/promotions_screen.dart';
+import 'package:meal_monkey/screens/change_address/change_address.dart';
+import 'package:meal_monkey/screens/check_out/check_out.dart';
 import 'package:meal_monkey/screens/home_page_screen/home_page.dart';
 import 'package:meal_monkey/screens/more_screen/about_us/about_us.dart';
 import 'package:meal_monkey/screens/more_screen/inbox/inbox_screen.dart';
@@ -60,6 +62,8 @@ class MyApp extends StatelessWidget {
           '/my_orders':(context)=>MyOrdersScreen(),
           '/inbox':(context)=>InboxScreen(),
           '/about_us':(context)=>AboutUsScreen(),
+          '/check_out':(context)=>CheckOut(),
+          '/change_address':(context)=>ChangeAddress(),
         },
         debugShowCheckedModeBanner: false,
       ),

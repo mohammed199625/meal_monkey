@@ -38,11 +38,7 @@ class BeveragesScreen extends StatelessWidget {
       ),
     );
   }
-  Widget _buildSearch() => SearchWidget(
-    text: 'query',
-    hintText: 'Search Food',
-    //onChanged:(){},
-    //searchFood,
-  );
+  Widget _buildSearch() => SearchWidget(hint: 'Search Food');
+
 
 }

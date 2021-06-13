@@ -38,12 +38,7 @@ class FoodScreen extends StatelessWidget {
       ),
     );
   }
+  Widget _buildSearch() => SearchWidget(hint: 'Search Food');
 
-  Widget _buildSearch() => SearchWidget(
-    text: 'query',
-    hintText: 'Search Food',
-    //onChanged:(){},
-    //searchFood,
-  );
 
 }
