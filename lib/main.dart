@@ -30,7 +30,7 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
-  // This widget is the root of your application.
+
   @override
   Widget build(BuildContext context) {
     return ScreenUtilInit(
@@ -41,7 +41,7 @@ class MyApp extends StatelessWidget {
           accentColor: KPlaceholderColor,
         ),
         routes: {
-          '/': (context) =>HomePage(),//SplashScreen(),
+          '/': (context) =>SplashScreen(),
           '/home_page': (context) => HomePage(),
           '/login':(context)=>Login(),
           '/sign_up':(context)=>SignUp(),
